@@ -41,8 +41,8 @@ classdef dynamics_numeric < handle
             %TODO if statement parsing control model
             if (strcmp(control_model, 'LQR'))
                 % weighting matrices for LQR gain
-                Q = diag([1,1,1,1,.1e4,.1e4,.1e4]) %for EKF
-                R = eye(3)*5000%390625%*1e14%diag([0.39,0.42,0.44])*1e-3 %eye(3)
+                Q = diag([5e3,5e3,5e3,5e3,5e1,5e1,5e1]) %for EKF
+                R = eye(3)*5e1%390625%*1e14%diag([0.39,0.42,0.44])*1e-3 %eye(3)
                 obj.control = model_predictive(delta_t, 1.18896, 1.18896, Q, R, 'periodic');
                 obj.EMF = b_dot(delta_t, inertia, 500000); % 3rd arg - altitude
             elseif strcmp(control_model, 'BDOT')
