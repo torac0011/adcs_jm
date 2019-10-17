@@ -1,7 +1,7 @@
 clear all, close all 
 % setup simulation
 delta_t = .1; % [s]
-simulation_duration = 96*60*5; % [s]
+simulation_duration = 96*60*0.5; % [s]
 
 inertia_kg_mm = [419, 420, 421]; % kg*mm^2, approx. values form skCUBE
 inertia = inertia_kg_mm / 1e6; % kg*m^2
